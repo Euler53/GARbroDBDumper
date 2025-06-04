@@ -1,9 +1,9 @@
-﻿using GameRes.Compression;
 using GameRes;
+using GameRes.Compression;
+using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using Newtonsoft.Json;
 
 namespace SchemeDumper
 {
@@ -14,10 +14,10 @@ namespace SchemeDumper
             using (Stream stream = File.OpenRead(".\\GameData\\Formats.dat"))
             {
                 int version = FormatCatalog.Instance.GetSerializedSchemeVersion(stream);
-                using (var zs = new ZLibStream(stream, CompressionMode.Decompress, true))
+                using (ZLibStream zs = new ZLibStream(stream, CompressionMode.Decompress, true))
                 {
-                    var bin = new BinaryFormatter();
-                    var db = (SchemeDataBase)bin.Deserialize(zs);
+                    BinaryFormatter bin = new BinaryFormatter();
+                    SchemeDataBase db = (SchemeDataBase)bin.Deserialize(zs);
                     string json = JsonConvert.SerializeObject(db, Formatting.Indented);
                     File.WriteAllText(".\\GameData\\Formats.json", json);
                 }
