@@ -10,7 +10,7 @@ Way 1: Double click `SchemeDumper.exe`. Then check `GameData\\Formats.json`.
 
 Way 2: Download `Formats.json` from release directly.
 
-To fetch the latest version of `Formats.json`, you may click `Actions`, select the latest run of `GARbro Scheme Dump` action and download the artifact `GARbro-Schemes`.
+To fetch the latest version of `Formats.json`, you may refer to [Actions](https://github.com/detached64/GARbroDBDumper/actions), select the latest run of the action `GARbro Scheme Dump` and download the artifact `GARbro-Schemes`.
 
 License
 ------
